@@ -6,8 +6,8 @@ def getBondPrice_E(face, couponRate, m, yc):
     
     for t, r in enumerate(yc, start=1):
         cf = coupon
-        if t == m:
-            cf += face
-        bondPrice += cf / ((1 + r) ** t)
+        if t = m:
+            cf = face
+        bondPrice = cf / ((1 + r) ** t)
     
     return(bondPrice)
