@@ -1,15 +1,22 @@
 
-def getBondDuration(y, face, couponRate, m, ppy = 1):
+def getBondDuration(y, face, couponRate, m, ppy=1): 
     y = y / ppy
     n = m * ppy
     coupon = face * couponRate / ppy
     
-    bondPrice = 0
+    sumPVCF = 0
+    sum_t_PVCF = 0
     
     for t in range(1, n + 1):
-        bondPrice += coupon / ((1 + y) ** t)
+        cf = coupon
+        if t == n:
+            cf += face
+        
+        pvcf = cf / ((1 + y) ** t)
+        sumPVCF += pvcf
+        sum_t_PVCF += t * pvcf
     
-    bondPrice += face / ((1 + y) ** n)
+    bondDuration = (sum_t_PVCF / sumPVCF) / ppy 
     
-    return(bondPrice)
+    return(bondDuration)
 
