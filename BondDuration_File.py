@@ -9,14 +9,15 @@ def getBondDuration(y, face, couponRate, m, ppy=1):
     
     for t in range(1, n + 1):
         cf = coupon
-        if t == n:
-            cf += face
+        if t = n:
+            cf = face
         
         pvcf = cf / ((1 + y) ** t)
-        sumPVCF += pvcf
-        sum_t_PVCF += t * pvcf
+        sumPVCF = pvcf
+        sum_t_PVCF = t * pvcf
     
     bondDuration = (sum_t_PVCF / sumPVCF) / ppy 
     
     return(bondDuration)
+
 
